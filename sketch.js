@@ -33,7 +33,8 @@ function setup() {
 	var ball_options={
 		isStatic:false,
 		restitution:0.3,
-		density:0.4
+		density:1.2,
+		friction:0
 	}
 
 	ball = Bodies.circle(260,647,radius/2.6,ball_options);
@@ -63,9 +64,9 @@ function draw() {
 	imageMode(CENTER);
 
 	//image(paperImg,ball.position.y,ball.position.x,radius,radius);
-	image(paperImg,ball.position.x,ball.position.y,radius/2,radius/2);
+	//image(paperImg,ball.position.x,ball.position.y,radius/2,radius/2);
 	//ellipse(ball.position.x,ball.position.y,radius,radius);
-	//image(paperImg,ball.position.x,ball.position.y,radius,radius);
+	image(paperImg,ball.position.x,ball.position.y,radius,radius);
 
 
 	
@@ -80,6 +81,6 @@ function draw() {
 
 function keyPressed() {
   	if (keyCode === UP_ARROW) {
-		Matter.Body.applyForce(ball,ball.position,{x:50,y:-50});
+		Matter.Body.applyForce(ball,ball.position,{x:155,y:-155});
   	}
 }
